@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btaskin <btaskin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 01:13:07 by btaskin           #+#    #+#             */
-/*   Updated: 2022/07/05 03:13:38 by btaskin          ###   ########.fr       */
+/*   Created: 2022/06/26 12:56:30 by btaskin           #+#    #+#             */
+/*   Updated: 2022/07/05 00:37:42 by btaskin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
-int main()
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	char a[] = "patates";
-	char b[] = " kominizm";
-	ft_strlcat(a, b, 8);
-	//strlcat(a, b, 1);
-	printf("%lu", strlcat(a, b, 1));
+	size_t	srclen;
+
+	srclen = ft_strlen(src);
+	if (srclen + 1 < dstsize)
+	{
+		ft_memcpy(dst, src, srclen + 1);
+	}
+	else if (dstsize != 0)
+	{
+		ft_memcpy(dst, src, dstsize - 1);
+		dst[dstsize - 1] = '\0';
+	}
+	return (srclen);
 }

@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btaskin <btaskin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 01:13:07 by btaskin           #+#    #+#             */
-/*   Updated: 2022/07/05 03:13:38 by btaskin          ###   ########.fr       */
+/*   Created: 2022/07/27 00:33:39 by btaskin           #+#    #+#             */
+/*   Updated: 2022/07/27 00:34:20 by btaskin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
-int main()
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	char a[] = "patates";
-	char b[] = " kominizm";
-	ft_strlcat(a, b, 8);
-	//strlcat(a, b, 1);
-	printf("%lu", strlcat(a, b, 1));
+	unsigned int	index;
+
+	if (s)
+	{
+		index = 0;
+		while (s[index])
+		{
+			(*f)(index, s + index);
+			index++;
+		}
+	}
 }

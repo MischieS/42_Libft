@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btaskin <btaskin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 01:13:07 by btaskin           #+#    #+#             */
-/*   Updated: 2022/07/05 03:13:38 by btaskin          ###   ########.fr       */
+/*   Created: 2022/07/05 03:19:47 by btaskin           #+#    #+#             */
+/*   Updated: 2022/07/05 03:31:20 by btaskin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
-int main()
+char	*ft_strchr(const char *s, int c)
 {
-	char a[] = "patates";
-	char b[] = " kominizm";
-	ft_strlcat(a, b, 8);
-	//strlcat(a, b, 1);
-	printf("%lu", strlcat(a, b, 1));
+	int	i;
+
+	i = 0;
+	while (s[i] != 0)
+	{
+		if (s[i] == (char)c)
+			return ((char *)(s + i));
+		i++;
+	}
+	return (0);
 }

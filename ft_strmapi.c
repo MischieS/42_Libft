@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btaskin <btaskin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 01:13:07 by btaskin           #+#    #+#             */
-/*   Updated: 2022/07/05 03:13:38 by btaskin          ###   ########.fr       */
+/*   Created: 2022/07/27 00:32:49 by btaskin           #+#    #+#             */
+/*   Updated: 2022/07/27 00:33:10 by btaskin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
-int main()
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char a[] = "patates";
-	char b[] = " kominizm";
-	ft_strlcat(a, b, 8);
-	//strlcat(a, b, 1);
-	printf("%lu", strlcat(a, b, 1));
+	int		index;
+	char	*str;
+
+	index = 0;
+	if (!s)
+		return (0);
+	str = (char *)malloc(sizeof(char) * ft_strlen((char *)s) + 1);
+	if (!str)
+		return (0);
+	while (s[index])
+	{
+		str[index] = f(index, s[index]);
+		index++;
+	}
+	str[index] = '\0';
+	return (str);
 }

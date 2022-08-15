@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   isprint.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btaskin <btaskin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 01:13:07 by btaskin           #+#    #+#             */
-/*   Updated: 2022/07/05 03:13:38 by btaskin          ###   ########.fr       */
+/*   Created: 2022/06/23 04:08:28 by btaskin           #+#    #+#             */
+/*   Updated: 2022/06/23 04:09:18 by btaskin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
-int main()
+int	ft_isprint(int i)
 {
-	char a[] = "patates";
-	char b[] = " kominizm";
-	ft_strlcat(a, b, 8);
-	//strlcat(a, b, 1);
-	printf("%lu", strlcat(a, b, 1));
+	if (i >= 32 && i <= 126)
+		return (1);
+	return (0);
 }

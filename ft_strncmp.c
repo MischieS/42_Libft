@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btaskin <btaskin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 01:13:07 by btaskin           #+#    #+#             */
-/*   Updated: 2022/07/05 03:13:38 by btaskin          ###   ########.fr       */
+/*   Created: 2022/07/05 03:38:24 by btaskin           #+#    #+#             */
+/*   Updated: 2022/07/05 03:45:43 by btaskin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
-int main()
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	char a[] = "patates";
-	char b[] = " kominizm";
-	ft_strlcat(a, b, 8);
-	//strlcat(a, b, 1);
-	printf("%lu", strlcat(a, b, 1));
+	if (n == 0)
+		return (0);
+	while (*s1 != '\0' && *s2 != '\0' && (n - 1) > 0)
+	{
+		if (*s1 != *s2)
+			break ;
+		s1++;
+		s2++;
+		n--;
+	}
+	return (*(unsigned char *)s1 - *(unsigned char *)s2);
 }

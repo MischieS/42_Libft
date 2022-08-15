@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btaskin <btaskin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 01:13:07 by btaskin           #+#    #+#             */
-/*   Updated: 2022/07/05 03:13:38 by btaskin          ###   ########.fr       */
+/*   Created: 2022/07/27 00:38:25 by btaskin           #+#    #+#             */
+/*   Updated: 2022/07/27 00:38:34 by btaskin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
-int main()
+void	ft_putnbr_fd(int n, int fd)
 {
-	char a[] = "patates";
-	char b[] = " kominizm";
-	ft_strlcat(a, b, 8);
-	//strlcat(a, b, 1);
-	printf("%lu", strlcat(a, b, 1));
+	unsigned int	index;
+
+	index = 0;
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		index = n * -1;
+	}
+	else
+		index = n;
+	if (index > 9)
+		ft_putnbr_fd(index / 10, fd);
+	ft_putchar_fd(index % 10 + '0', fd);
 }
