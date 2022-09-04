@@ -6,29 +6,29 @@
 /*   By: btaskin <btaskin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 01:02:14 by btaskin           #+#    #+#             */
-/*   Updated: 2022/07/05 03:14:48 by btaskin          ###   ########.fr       */
+/*   Updated: 2022/08/29 18:32:26 by btaskin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, char *src, size_t dstsize)
+size_t	ft_strlcat(char *str_d, const char *str_s, size_t n)
 {
-	size_t	i;
-	size_t	size_dst;
-	size_t	size_src;
+	size_t	str_i;
+	size_t	len_strd;
+	size_t	len_strs;
 
-	i = 0;
-	size_dst = ft_strlen(dst);
-	size_src = ft_strlen(src);
-	if (dstsize <= size_src)
-		return (dstsize + size_src);
-	while (src[i] != '\0' && dstsize > (size_dst + 1))
+	len_strd = ft_strlen(str_d);
+	len_strs = ft_strlen((char *)str_s);
+	if (n <= len_strd)
+		return (n + len_strs);
+	str_i = 0;
+	while (str_s[str_i] != '\0' && n > (len_strd + 1))
 	{
-		dst[size_dst] = src[i];
-		i++;
-		size_dst++;
+		str_d[len_strd] = str_s[str_i];
+		str_i++;
+		len_strd++;
 	}
-	dst[size_dst] = '\0';
-	return (size_dst);
+	str_d[len_strd] = '\0';
+	return (len_strd + ft_strlen((char *)(&str_s[str_i])));
 }

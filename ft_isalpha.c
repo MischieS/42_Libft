@@ -6,15 +6,18 @@
 /*   By: btaskin <btaskin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 01:29:57 by btaskin           #+#    #+#             */
-/*   Updated: 2022/06/23 03:34:01 by btaskin          ###   ########.fr       */
+/*   Updated: 2022/09/04 06:30:43 by btaskin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int i)
+int	ft_isalpha(int num)
 {
-	if (i <= 'z' && i >= 'a' || i <= 'Z' && i >= 'A')
+	if (num >= 65 && num <= 90)
 		return (1);
-	return (0);
+	else if (num >= 97 && num <= 122)
+		return (1);
+	else
+		return (0);
 }

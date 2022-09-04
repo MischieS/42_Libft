@@ -6,7 +6,7 @@
 /*   By: btaskin <btaskin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 01:10:21 by btaskin           #+#    #+#             */
-/*   Updated: 2022/08/07 04:39:08 by btaskin          ###   ########.fr       */
+/*   Updated: 2022/09/04 00:36:57 by btaskin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
 
 typedef struct s_list
 {
@@ -31,7 +30,7 @@ typedef struct s_split_next
 
 int				ft_atoi(const char *str);
 
-void			*ft_bzero(void *s, size_t n);
+void			ft_bzero(void *s, size_t n);
 
 void			*ft_calloc(size_t count, size_t size);
 
@@ -75,7 +74,7 @@ char			*ft_strdup(const char *s1);
 
 char			*ft_strjoin(char const *s1, char const *s2);
 
-size_t			ft_strlcat(char *dest, const char *src, size_t size);
+size_t			ft_strlcat(char *str_d, const char *str_s, size_t n);
 
 size_t			ft_strlcpy(char *dest, const char *src, size_t size);
 
